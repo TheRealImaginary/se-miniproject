@@ -1,11 +1,36 @@
 const express = require('express');
-const authApi = require('/app/routes/api/v1/auth');
+const mongoose = require('mongoose');
+
+const config = require('./config.json');
+const authApi = require('./app/routes/api/v1/auth');
 
 const app = express();
 
 const PORT = process.env.PORT || 8080;
+const DB_URL = config.DB_URL;
 
+const connection = mongoose.connect(DB_URL);
+
+/**
+ * Authentication API Routes
+ */
 app.use('/api/v1/auth', authApi);
+
+
+/**
+ * Error Handling Middlewares
+ */
+app.use(function (err, req, res, next) {
+	return res.status(500).json({
+		message: err.toString()
+	});
+});
+
+app.use(function (req, res, next) {
+	return res.status(400).json({
+		message: 'Invalid Or Missing Data'
+	});
+});
 
 app.listen(PORT, function () {
 	console.log(`Server Listening On Port ${PORT}!`);
