@@ -1,10 +1,11 @@
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt-nodejs');
-const validator = require('validator');
 
 const ID_REGEX = /^[0-9]{2}-[0-9]{4,7}$/;
 //http://stackoverflow.com/questions/19605150/regex-for-password-must-be-contain-at-least-8-characters-least-1-number-and-bot
 const PASSWORD_REGEX = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{8,}$/;
+//http://www.regexpal.com/94044
+const GUC_EMAIL_REGEX = /^[a-zA-Z0-9_.+-]+@(?:(?:[a-zA-Z0-9-]+\.)?[a-zA-Z]+\.)?(student)\.guc.edu.eg$/
 
 const userSchema = mongoose.Schema({
 	name: {
@@ -17,9 +18,9 @@ const userSchema = mongoose.Schema({
 		unique: true,
 		validate: {
 			validator: function (email) {
-				return validator.isEmail(email);
+				return GUC_EMAIL_REGEX.test(email);
 			},
-			message: '{VALUE} is not a valid email!'
+			message: '{VALUE} is not a valid GUC email!'
 		}
 	},
 	guc_id: {
