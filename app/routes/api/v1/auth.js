@@ -2,16 +2,18 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const jwt = require('jsonwebtoken');
 
+const headerParser = require('../../../util/headerParser');
 const User = require('../../../models/User');
+const InvalidToken = require('../../../models/InvalidToken');
 const config = require('../../../../config.json');
 
 const router = express.Router();
-const secretOrKey = config.secretOrKey;
+const secretOrKey = config.SECRET_OR_KEY;
 
 router.use(bodyParser.json());
 
 /**
- * User Sign Up Route
+ * Student Sign Up Route
  */
 router.post('/signup', function (req, res, next) {
 	let email = req.body.email,
@@ -74,6 +76,23 @@ router.post('/login', function (req, res, next) {
 				message: 'Logged In Successfully',
 				token: token
 			});
+		});
+	});
+});
+
+/**
+ * Student Logout Route
+ */
+router.post('/logout', function (req, res, next) {
+	let invalidToken = new InvalidToken({
+		token: headerParser(req.headers)
+	});
+	invalidToken.save(function (err) {
+		if (err) {
+			return next(err);
+		}
+		return res.json({
+			message: 'Logged Out Successfully'
 		});
 	});
 });

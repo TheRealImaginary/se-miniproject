@@ -1,17 +1,19 @@
 const passport = require('passport');
 const passportJWT = require('passport-jwt');
 
+const headerParser = require('../util/headerParser');
 const User = require('../models/User');
+const InvalidToken = require('../models/InvalidToken');
 const config = require('../../config.json');
 
-const secretOrKey = config.secretOrKey;
+const SECRET_OR_KEY = config.SECRET_OR_KEY;
 const ExtractJWT = passportJWT.ExtractJwt;
 const JWTStrategy = passportJWT.Strategy;
 
 const JWTOptions = {
 	jwtFromRequest: ExtractJWT.fromAuthHeader(),
 	passReqToCallback: true,
-	secretOrKey: secretOrKey
+	secretOrKey: SECRET_OR_KEY
 };
 
 let strategy = new JWTStrategy(JWTOptions, function (req, payload, next) {
@@ -24,7 +26,17 @@ let strategy = new JWTStrategy(JWTOptions, function (req, payload, next) {
 		if (!user) {
 			return next(null, false, new Error('Invalid Credentials!'));
 		}
-		return next(null, user);
+		InvalidToken.findOne({
+			token: headerParser(req.headers)
+		}, function (err, token) {
+			if (err) {
+				return next(err);
+			}
+			if (token) {
+				return next(null, false, new Error('Invalid Token'));
+			}
+			return next(null, user);
+		});
 	});
 });
 
