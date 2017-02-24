@@ -23,6 +23,9 @@ const userSchema = mongoose.Schema({
 			message: '{VALUE} is not a valid GUC email!'
 		}
 	},
+	profilePic: {
+		type: String,
+	}
 	guc_id: {
 		type: String,
 		required: true,
