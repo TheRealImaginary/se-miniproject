@@ -1,11 +1,11 @@
 const passport = require('passport');
 const passportJWT = require('passport-jwt');
 
-const User = require('../models/Users');
+const User = require('../models/User');
 const config = require('../../config.json');
 
 const secretOrKey = config.secretOrKey;
-const ExtractJWT = passportJWT.ExtractJWT;
+const ExtractJWT = passportJWT.ExtractJwt;
 const JWTStrategy = passportJWT.Strategy;
 
 const JWTOptions = {
