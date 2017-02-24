@@ -25,7 +25,7 @@ const userSchema = mongoose.Schema({
 	},
 	profilePic: {
 		type: String,
-	}
+	},
 	guc_id: {
 		type: String,
 		required: true,
