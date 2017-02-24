@@ -14,7 +14,7 @@ const DB_URL = config.DB_URL;
 const connection = mongoose.connect(DB_URL);
 
 passport.use(auth.strategy);
-//app.use(passport.initialize());
+app.use(passport.initialize());
 
 /**
  * Authentication API Routes
