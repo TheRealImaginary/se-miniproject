@@ -29,6 +29,9 @@ const router = express.Router();
 
 router.use(bodyParser.json());
 
+/**
+ * Student Edit Profile Picture Route
+ */
 router.post('/profile/picture', authMiddleware, upload.single('avatar'), function (req, res, next) {
 	console.log(req.user);
 	let fileName = req.file.filename;
@@ -42,7 +45,7 @@ router.post('/profile/picture', authMiddleware, upload.single('avatar'), functio
 		}
 		//Front-End Updates Itself with photo
 		return res.json({
-			message: 'Done'
+			message: 'Updated Profile Picture Successfully'
 		});
 	});
 });
