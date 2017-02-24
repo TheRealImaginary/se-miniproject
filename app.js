@@ -5,6 +5,7 @@ const passport = require('passport');
 const auth = require('./app/middlewares/authentication');
 const config = require('./config.json');
 const authApi = require('./app/routes/api/v1/auth');
+const studentApi = require('./app/routes/api/v1/student');
 
 const app = express();
 
@@ -21,6 +22,10 @@ app.use(passport.initialize());
  */
 app.use('/api/v1/auth', authApi);
 
+/**
+ * Student API Routes
+ */
+app.use('/api/v1/student', studentApi);
 
 /**
  * Error Handling Middlewares

@@ -38,3 +38,6 @@ jspm_packages
 
 #Config Files
 config.json
+
+#stuff
+public/avatars
