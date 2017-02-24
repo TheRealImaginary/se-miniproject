@@ -1,13 +1,17 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+const jwt = require('jsonwebtoken');
+
 const User = require('../../../models/User');
+const config = require('../../../../config.json');
 
 const router = express.Router();
+const secretOrKey = config.secretOrKey;
 
 router.use(bodyParser.json());
 
 /**
- * User Sign Up
+ * User Sign Up Route
  */
 router.post('/signup', function (req, res, next) {
 	let email = req.body.email,
@@ -29,6 +33,47 @@ router.post('/signup', function (req, res, next) {
 		}
 		return res.json({
 			message: 'Successfully Signed Up!'
+		});
+	});
+});
+
+/**
+ * Student Login Route
+ */
+router.post('/login', function (req, res, next) {
+	let email = req.body.email,
+		password = req.body.password;
+	if (!email || !password) {
+		return next();
+	}
+	User.findOne({
+		email: email
+	}, function (err, user) {
+		if (err) {
+			return next(err);
+		}
+		if (!user) {
+			return next('Invalid Email');
+		}
+		user.checkPassword(password, function (err, isMatch) {
+			if (err) {
+				return next(err);
+			}
+
+			if (!isMatch) {
+				return next('Invalid Password');
+			}
+
+			let token = jwt.sign({
+				id: user._id
+			}, secretOrKey, {
+				expiresIn: '10d'
+			});
+
+			return res.json({
+				message: 'Logged In Successfully',
+				token: token
+			});
 		});
 	});
 });
