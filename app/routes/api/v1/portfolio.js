@@ -33,7 +33,7 @@ router.use(bodyParser.json());
 /**
  * Client View Portfolio
  */
-router.get('/portfolio/page/:page', function (req, res, next) {
+router.get('/page/:page', function (req, res, next) {
 	let page = req.params.page;
 	Portfolio.count(function (err, count) {
 		if (err) {
@@ -56,7 +56,9 @@ router.get('/portfolio/page/:page', function (req, res, next) {
 /**
  * Student Upload Work
  */
-router.post('/portfolio/new', authMiddleware, function (req, res, next) {});
+router.post('/new', authMiddleware, function (req, res, next) {
+
+});
 
 /**
  * Error Handling Middleware
