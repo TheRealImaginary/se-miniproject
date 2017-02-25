@@ -3,6 +3,7 @@ const bodyParser = require('body-parser');
 const multer = require('multer');
 
 const CONSTANTS = require('../../../util/constants');
+const Portfolio = require('../../../models/Portfolio');
 const authentication = require('../../../middlewares/authentication');
 
 const authMiddleware = authentication.authMiddleware;
@@ -28,6 +29,29 @@ const upload = multer({
 const router = express.Router();
 
 router.use(bodyParser.json());
+
+/**
+ * Client View Portfolio
+ */
+router.get('/portfolio/page/:page', function (req, res, next) {
+	let page = req.params.page;
+	Portfolio.count(function (err, count) {
+		if (err) {
+			return next(err);
+		}
+		Portfolio.find({}, {}, {
+			skip: 10 * (page - 1),
+			limit: 10
+		}, function (err, results) {
+			if (err) {
+				return next(err);
+			}
+			return res.json({
+				message: 'Done'
+			});
+		});
+	});
+});
 
 /**
  * Student Upload Work
