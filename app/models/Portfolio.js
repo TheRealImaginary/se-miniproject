@@ -6,7 +6,9 @@ const portfolioSchema = mongoose.Schema({
 	},
 	creator: {
 		type: mongoose.Schema.Types.ObjectId,
-		ref: 'User'
+		ref: 'User',
+		required: true,
+		unique: true
 	},
 	work: [{
 		type: mongoose.Schema.Types.ObjectId,
