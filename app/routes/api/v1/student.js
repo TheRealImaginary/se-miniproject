@@ -2,12 +2,13 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const multer = require('multer');
 
+const CONSTANTS = require('../../../util/constants');
 const User = require('../../../models/User');
 const authentication = require('../../../middlewares/authentication');
 
 const authMiddleware = authentication.authMiddleware;
 
-const imageTypes = ['jpeg', 'jpg', 'png'];
+const IMAGE_TYPES = CONSTANTS.IMAGE_TYPES;
 
 const upload = multer({
 	storage: multer.diskStorage({
@@ -15,13 +16,13 @@ const upload = multer({
 			return callBack(null, 'public/avatars/');
 		},
 		filename: function (req, file, callBack) {
-			return callBack(null, `${req.user.id}.${file.mimetype.split('/')[1]}`);
+			return callBack(null, `${req.user._id}.${file.mimetype.split('/')[1]}`);
 		}
 	}),
 	fileFilter: function (req, file, callBack) {
-		if (imageTypes.includes(file.mimetype.split('/')[1]))
+		if (IMAGE_TYPES.includes(file.mimetype.split('/')[1]))
 			return callBack(null, true);
-		return callBack(new Error(`Invalid File Type. File type must be ${imageTypes.toString()}!`));
+		return callBack(new Error(`Invalid File Type. File type must be ${IMAGE_TYPES.toString()}!`));
 	}
 });
 
@@ -29,8 +30,10 @@ const router = express.Router();
 
 router.use(bodyParser.json());
 
+/**
+ * Student Edit Profile Picture Route
+ */
 router.post('/profile/picture', authMiddleware, upload.single('avatar'), function (req, res, next) {
-	console.log(req.user);
 	let fileName = req.file.filename;
 	User.update({
 		_id: req.user._id
@@ -42,7 +45,7 @@ router.post('/profile/picture', authMiddleware, upload.single('avatar'), functio
 		}
 		//Front-End Updates Itself with photo
 		return res.json({
-			message: 'Done'
+			message: 'Updated Profile Picture Successfully'
 		});
 	});
 });

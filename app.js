@@ -4,8 +4,10 @@ const passport = require('passport');
 
 const auth = require('./app/middlewares/authentication');
 const config = require('./config.json');
+
 const authApi = require('./app/routes/api/v1/auth');
 const studentApi = require('./app/routes/api/v1/student');
+const portfolioApi = require('./app/routes/api/v1/portfolio');
 
 const app = express();
 
@@ -26,6 +28,11 @@ app.use('/api/v1/auth', authApi);
  * Student API Routes
  */
 app.use('/api/v1/student', studentApi);
+
+/**
+ * Portfolio API Routes
+ */
+app.use('/api/v1/portfolio', portfolioApi);
 
 /**
  * Error Handling Middlewares
