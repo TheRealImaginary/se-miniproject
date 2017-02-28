@@ -5,14 +5,14 @@
                 <a class="navbar-brand" href="#">
                     <img alt="Logo" src="">
                 </a>
-                </div>
+            </div>
                 <ul class="nav navbar-nav pull-right">
                     <li><router-link to="/home">Home</router-link></li>
                     <li><router-link to="/login">Login</router-link></li>
                     <li><router-link to="/signup">Sign Up</router-link></li>
                     <li><router-link to="/profile">Profile</router-link></li>
                     <li><router-link to="/logout">Logout</router-link></li>
-            </ul>
+            	</ul>
         </div>
     </nav>
 </template>

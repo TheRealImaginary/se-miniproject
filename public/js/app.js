@@ -1,13 +1,13 @@
 import Vue from 'vue';
-import VueRouter from 'vue-router'
-import axios from 'axios'
-import router from './router/routes'
-import NavBar from './components/NavBar'
-import Portfolio from './components/Portfolio'
-import Login from './views/Login'
-import SignUp from './views/SignUp'
-import AddWork from './views/AddWork'
-import CreatePortfolio from './views/CreatePortfolio'
+import VueRouter from 'vue-router';
+import axios from 'axios';
+import router from './router/routes';
+import NavBar from './components/NavBar';
+import Portfolio from './components/Portfolio';
+import Login from './views/Login';
+import SignUp from './views/SignUp';
+import AddWork from './views/AddWork';
+import CreatePortfolio from './views/CreatePortfolio';
 
 Vue.use(VueRouter);
 
