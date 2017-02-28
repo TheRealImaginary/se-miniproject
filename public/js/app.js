@@ -2,6 +2,7 @@ import Vue from 'vue';
 import VueRouter from 'vue-router'
 import axios from 'axios'
 import NavBar from './components/NavBar'
+import Login from './views/Login'
 
 Vue.use(VueRouter);
 
@@ -11,11 +12,8 @@ new Vue({
 	el: '#root',
 	data: {},
 	components: {
-		'navbar': NavBar
+		'nav-bar': NavBar,
+		'login-form': Login
 	},
-	methods: {
-		callToggle() {
-			this.isActive = !this.isActive;
-		}
-	}
+	methods: {}
 });
