@@ -7,11 +7,11 @@
                 </a>
                 </div>
                 <ul class="nav navbar-nav pull-right">
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">Login</a></li>
-                    <li><a href="#">SignUp</a></li>
-                    <li><a href="#">Profile</a></li>
-                    <li><a href="#">Logout</a></li>
+                    <li><router-link to="/home">Home</router-link></li>
+                    <li><router-link to="/login">Login</router-link></li>
+                    <li><router-link to="/signup">Sign Up</router-link></li>
+                    <li><router-link to="/profile">Profile</router-link></li>
+                    <li><router-link to="/logout">Logout</router-link></li>
             </ul>
         </div>
     </nav>

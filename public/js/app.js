@@ -1,6 +1,7 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router'
 import axios from 'axios'
+import router from './router/routes'
 import NavBar from './components/NavBar'
 import Portfolio from './components/Portfolio'
 import Login from './views/Login'
@@ -14,6 +15,7 @@ window.axios = axios;
 
 new Vue({
 	el: '#root',
+	router,
 	data: {},
 	components: {
 		'nav-bar': NavBar,

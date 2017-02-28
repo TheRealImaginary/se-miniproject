@@ -20,6 +20,7 @@ router.post('/signup', function (req, res, next) {
 		password = req.body.password,
 		guc_id = req.body.guc_id,
 		name = req.body.name;
+	console.log(req.body);
 	if (!email || !password || !guc_id || !name) {
 		return next();
 	}
@@ -101,6 +102,7 @@ router.post('/logout', function (req, res, next) {
  * Error Handling Middleware
  */
 router.use(function (err, req, res, next) {
+	console.log(err.toString());
 	return res.status(500).json({
 		error: err.toString()
 	});
