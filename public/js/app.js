@@ -3,6 +3,7 @@ import VueRouter from 'vue-router'
 import axios from 'axios'
 import NavBar from './components/NavBar'
 import Login from './views/Login'
+import SignUp from './views/SignUp'
 
 Vue.use(VueRouter);
 
@@ -13,7 +14,8 @@ new Vue({
 	data: {},
 	components: {
 		'nav-bar': NavBar,
-		'login-form': Login
+		'login-form': Login,
+		'sign-form': SignUp
 	},
 	methods: {}
 });
