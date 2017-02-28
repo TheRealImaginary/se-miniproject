@@ -5,11 +5,11 @@
             <form action="" method="">
                 <label class="control-label" for="email">Email</label>
                 <div class="form-group">
-                    <input type="text" name="email" class="form-control" required>
+                    <input type="email" name="email" class="form-control" required>
                 </div>
                 <label class="control-lavel" for="password">Password</label>
                 <div class="form-group">
-                    <input type="password" name="password" class="form-control">
+                    <input type="password" name="password" class="form-control" required>
                 </div>
                 <div class="form-group text-center">
                     <button type="submit" class="btn btn-primary">Login</button>

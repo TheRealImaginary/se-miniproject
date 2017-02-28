@@ -11,7 +11,7 @@
                 <div class="form-group">
                     <input type="text" name="email" class="form-control" required>
                 </div>
-                <label class="control-lavel" for="password">Password</label>
+                <label class="control-lavel" for="password">Password</label required>
                 <div class="form-group">
                     <input type="password" name="password" class="form-control">
                 </div>
@@ -20,7 +20,7 @@
                     <input type="text" name="guc_id" class="form-control">
                 </div>
                 <div class="form-group text-center">
-                    <button type="submit" class="btn btn-primary">Login</button>
+                    <button type="submit" class="btn btn-primary">Sign Up</button>
                 </div>
             </form>
         </div>
