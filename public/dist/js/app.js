@@ -5260,10 +5260,11 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   }, [_c('ul', {
     staticClass: "pagination"
   }, _vm._l((Math.ceil(_vm.count)), function(p) {
-    return _c('li', [_c('a', {
+    return _c('li', {
       class: {
         active: p == _vm.page
-      },
+      }
+    }, [_c('a', {
       on: {
         "click": _vm.queryPage
       }

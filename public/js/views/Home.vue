@@ -8,7 +8,7 @@
 
 		<nav class="navbar-fixed-bottom text-center" aria-label="Portfolio Navigation">
 	        <ul class="pagination">
-	            <li v-for="p in Math.ceil(count)"><a :class="{active: p == page}" @click="queryPage">{{ p }}</a></li>
+	            <li v-for="p in Math.ceil(count)" :class="{active: p == page}"><a @click="queryPage">{{ p }}</a></li>
 	        </ul>
     	</nav>
 	</div>
