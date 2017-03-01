@@ -35,9 +35,11 @@ router.use(bodyParser.json());
  * Client View Portfolio
  */
 router.get('/page/:page', function (req, res, next) {
+	console.log(2);
 	let page = req.params.page;
 	Portfolio.count(function (err, count) {
 		if (err) {
+			console.log(err);
 			return next(err);
 		}
 		Portfolio.find({}, {}, {

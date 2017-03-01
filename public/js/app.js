@@ -13,7 +13,7 @@ Vue.use(VueRouter);
 
 window.axios = axios;
 
-new Vue({
+let app = new Vue({
 	el: '#root',
 	router,
 	data: {},

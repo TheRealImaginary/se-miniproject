@@ -2,12 +2,12 @@
 	<div class="row">
         <div class="col-sm-6 col-md-4">
             <div class="thumbnail">
-                <img src="" alt="Portfolio Image">
+                <img :src="imageURL(image)" alt="Portfolio Image">
                 <div class="caption">
-                    <h3>UserName</h3>
+                    <h3>{{ username }}</h3>
                     <ul>
-                    	<li>Work 1</li>
-                    	<li>Work 2</li>
+                    	<li>{{ work1 }}</li>
+                    	<li>{{ work2 }}</li>
                     </ul>
                 </div>
             </div>
@@ -16,7 +16,14 @@
 </template>
 
 <script>
-
+    export default {
+        props: ['image', 'username', 'work1', 'work2'],
+        methods: {
+            imageURL(image){
+                return `portfolio/${image}`
+            }
+        }
+    }
 </script>
 
 <style>

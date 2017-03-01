@@ -20,7 +20,6 @@ router.post('/signup', function (req, res, next) {
 		password = req.body.password,
 		guc_id = req.body.guc_id,
 		name = req.body.name;
-	console.log(req.body);
 	if (!email || !password || !guc_id || !name) {
 		return next();
 	}

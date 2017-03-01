@@ -64,7 +64,7 @@
                     this.signedUp = true;
                     setTimeout(() => {
                         this.$router.push('/login');
-                    }, 1000);
+                    }, 800);
                 }).catch((err) => {
                     console.log(err.response.data.error);
                     this.errors = [err.response.data.error];
