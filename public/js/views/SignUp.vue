@@ -13,19 +13,19 @@
             <form @submit.prevent="onSubmit">
                 <label class="control-label" for="name">Name</label>
                 <div class="form-group">
-                    <input v-model="name" type="text" name="name" class="form-control">
+                    <input v-model="name" type="text" name="name" class="form-control" placeholder="Feitan">
                 </div>
                 <label class="control-label" for="email">Email</label>
                 <div class="form-group">
-                    <input v-model="email" type="text" name="email" class="form-control" required>
+                    <input v-model="email" type="text" name="email" class="form-control" placeholder="feitan@student.guc.edu.eg" required>
                 </div>
-                <label class="control-lavel" for="password">Password</label required>
+                <label class="control-lavel" for="password">Password</label>
                 <div class="form-group">
-                    <input v-model="password" type="password" name="password" class="form-control">
+                    <input v-model="password" type="password" name="password" class="form-control" placeholder="******" required>
                 </div>
                 <label class="control-label" for="guc_id">GUC ID</label>
                 <div class="form-group">
-                    <input v-model="guc_id" type="text" name="guc_id" class="form-control">
+                    <input v-model="guc_id" type="text" name="guc_id" class="form-control" placeholder="31-12345">
                 </div>
                 <div class="form-group text-center">
                     <button type="submit" class="btn btn-primary">Sign Up</button>

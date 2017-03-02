@@ -11,6 +11,8 @@
                     <li v-show="!user.authenticated" :class="{active: flags.login}"><router-link to="/login" @click.native="setFlag('login')">Login</router-link></li>
                     <li v-show="!user.authenticated" :class="{active: flags.signup}"><router-link to="/signup" @click.native="setFlag('signup')">Sign Up</router-link></li>
                     <li v-show="user.authenticated" :class="{active: flags.profile}"><router-link to="/profile" @click.native="setFlag('profile')">Profile</router-link></li>
+                    <li v-show="user.authenticated" :class="{active: flags.portfolio}"><router-link to="/CreatePortfolio" @click.native="setFlag('portfolio')">Create Portfolio</router-link></li>
+                    <li v-show="user.authenticated" :class="{active: flags.work}"><router-link to="/AddWork" @click.native="setFlag('work')">Add Work</router-link></li>
                     <li v-show="user.authenticated" :class="{active: flags.logout}"><router-link to="/logout" @click.native="setFlag('logout')">Logout</router-link></li>
             	</ul>
         </div>
@@ -28,7 +30,9 @@
  					login: false,
  					signup: false,
  					profile: false,
- 					logout: false
+ 					logout: false,
+ 					portfolio: false,
+ 					work: false
  				}
  			}
  		},

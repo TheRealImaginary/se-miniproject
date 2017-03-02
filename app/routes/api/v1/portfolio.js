@@ -91,12 +91,13 @@ router.post('/new', authMiddleware, upload.single('portfolioImage'), function (r
  * Student Upload Work
  */
 router.put('/add', authMiddleware, upload.single('workImage'), function (req, res, next) {
+	console.log(req.body);
 	let workImage = req.file,
 		workName = req.body.workName,
 		workLink = req.body.workLink,
 		workDescription = req.body.workDescription;
 	if ((!workImage && !workLink) || !workName) {
-		return next();
+		return next('Must Have Either a Work Image Or Link. Moreover WorkName is Required!');
 	}
 	if (workImage)
 		workImage = workImage.filename;
@@ -138,6 +139,7 @@ router.put('/add', authMiddleware, upload.single('workImage'), function (req, re
  * Error Handling Middleware
  */
 router.use(function (err, req, res, next) {
+	console.log(err);
 	return res.status(500).json({
 		error: err.toString()
 	});

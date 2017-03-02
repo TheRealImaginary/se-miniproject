@@ -31,6 +31,26 @@ const router = express.Router();
 router.use(bodyParser.json());
 
 /**
+ * Student Get Profile Picture
+ */
+router.get('/profile/picture', authMiddleware, function (req, res, next) {
+	User.findOne({
+		_id: req.user._id
+	}, function (err, user) {
+		if (err) {
+			return next(err);
+		}
+		if (!user) {
+			return next();
+		}
+		return res.json({
+			message: 'Success!',
+			avatar: user.profilePic
+		});
+	});
+});
+
+/**
  * Student Edit Profile Picture Route
  */
 router.post('/profile/picture', authMiddleware, upload.single('avatar'), function (req, res, next) {
