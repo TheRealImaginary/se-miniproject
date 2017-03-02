@@ -3,7 +3,7 @@
 ---
 ##Setup
 1. Clone this repo.
-2. Then in the project's directory npm install
+2. Then in the project's directory `npm install`
 3. Create config.json file and edit it with the following content:
   * `PORT` port number you wish the server to listen to.
   * `SECRET_OR_KEY` for signing JWT.
