@@ -67,7 +67,7 @@
                     }, 800);
                 }).catch((err) => {
                     console.log(err.response.data.error);
-                    this.errors = [err.response.data.error];
+                    this.errors = [err.response.data.error || err.response.data.message];
                 });
             }
         }

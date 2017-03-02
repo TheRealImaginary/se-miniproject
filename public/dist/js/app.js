@@ -4774,7 +4774,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 				_this.clear();
 			}).catch(function (err) {
 				console.log(err.response.data.error);
-				_this.errors = [err.response.data.error];
+				_this.errors = [err.response.data.error || err.response.data.message];
 			});
 
 			this.workImage = '';
@@ -4920,12 +4920,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 			axios.get('http://localhost:8000/api/v1/portfolio/page/' + (event ? event.target.innerHTML : page)).then(function (response) {
 				_this.count = response.data.count;
 				_this.portfolio = response.data.portfolios;
-				console.log(response);
 			}).catch(function (err) {
-				_this.errors = [err.response.data.error];
-				console.log(err.response);
+				_this.errors = [err.response.data.error || err.response.data.message];
 			});
-			console.log(this.portfolio);
 		},
 		getWork: function getWork(work) {
 			return work ? work.name : '';
@@ -5001,7 +4998,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 console.log(2222, _this);
                 if (err) {
                     console.log(1, err);
-                    _this.errors = [err.response.data.error];
+                    _this.errors = [err.response.data.error || err.response.data.message];
                     return console.log(err.response.data);
                 }
                 _this.loggedIn = true;
@@ -5112,7 +5109,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 }, 800);
             }).catch(function (err) {
                 console.log(err.response.data.error);
-                _this.errors = [err.response.data.error];
+                _this.errors = [err.response.data.error || err.response.data.message];
             });
         }
     }
@@ -15761,7 +15758,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 				_this.Update();
 			}).catch(function (err) {
 				console.log(err);
-				_this.errors = [err.response.data.error];
+				_this.errors = [err.response.data.error || err.response.data.message];
 			});
 		},
 		Update: function Update() {
@@ -15777,7 +15774,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 				_this2.avatarName = response.data.avatar;
 			}).catch(function (err) {
 				console.log(err);
-				_this2.errors = [err.response.data.error];
+				_this2.errors = [err.response.data.error || err.response.data.message];
 			});
 		},
 		avatarChange: function avatarChange(event) {

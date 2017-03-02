@@ -53,7 +53,7 @@
 					this.Update();
 				}).catch((err) => {
 					console.log(err);
-					this.errors = [err.response.data.error];
+					this.errors = [err.response.data.error || err.response.data.message];
 				});
 			},
 			Update(){
@@ -67,7 +67,7 @@
 					this.avatarName = response.data.avatar;
 				}).catch((err) => {
 					console.log(err);
-					this.errors = [err.response.data.error];
+					this.errors = [err.response.data.error || err.response.data.message];
 				});
 			},
 			avatarChange(event) {

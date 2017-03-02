@@ -39,12 +39,9 @@
 				axios.get(`http://localhost:8000/api/v1/portfolio/page/${event?event.target.innerHTML:page}`).then((response) => {
 					this.count = response.data.count;
 					this.portfolio = response.data.portfolios;
-					console.log(response);
 				}).catch((err) => {
-					this.errors = [err.response.data.error];
-					console.log(err.response);
+					this.errors = [err.response.data.error || err.response.data.message];
 				});
-				console.log(this.portfolio);
 			},
 			getWork(work) {
 				return work ? work.name : '';

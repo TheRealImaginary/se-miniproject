@@ -53,7 +53,7 @@
                     console.log(2222, this);
                     if (err) {
                         console.log(1, err);
-                        this.errors = [err.response.data.error];
+                        this.errors = [err.response.data.error || err.response.data.message];
                         return console.log(err.response.data);
                     }
                     this.loggedIn = true;
