@@ -8,6 +8,7 @@
   * `PORT` port number you wish the server to listen to.
   * `SECRET_OR_KEY` for signing JWT.
   * `DB_URL` URL for mongodb
+4. Create 2 folders (portfolio, avatars) in public directory.
 
 ---
 ##Usage
