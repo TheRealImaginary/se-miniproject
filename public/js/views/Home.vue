@@ -4,10 +4,10 @@
             <h3 class="text-center">An Error Occured</h3>
             <div v-text="errors[0]" class="alert alert-danger"></div>
         </div>
-        <div v-if="count > 0">
+        <div v-if="count > 0" class="text-center">
 			<portfolio-card v-for="p in portfolio" :image="p.thumbnail" :username="p.creator.name" :work1="getWork(p.work[0])" :work2="getWork(p.work[1])"></portfolio-card>
 		</div>
-		<div v-else>
+		<div v-else class="text-center">
 			<img src="misc/nothing_to_see_here.png">
 		</div>
 		<nav class="navbar-fixed-bottom text-center" aria-label="Portfolio Navigation">
@@ -34,7 +34,7 @@
 		},
 		methods: {
 			queryPage(event, page) {
-				this.page = page;
+				this.page = event ? event.target.innerHTML : page;
 				this.errors = [];
 				axios.get(`http://localhost:8000/api/v1/portfolio/page/${event?event.target.innerHTML:page}`).then((response) => {
 					this.count = response.data.count;
@@ -46,7 +46,7 @@
 				});
 				console.log(this.portfolio);
 			},
-			getWork(work){
+			getWork(work) {
 				return work ? work.name : '';
 			}
 		},

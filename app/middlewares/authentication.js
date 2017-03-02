@@ -48,7 +48,7 @@ let authMiddleware = function (req, res, next) {
 			return next(err);
 		}
 		if (!user) {
-			return res.json({
+			return res.status(400).json({
 				message: info.toString()
 			});
 		}

@@ -48,12 +48,11 @@
                     }
                 };
                 axios.post('http://localhost:8000/api/v1/portfolio/new', payload, headers).then((response) => {
-                    console.log(response);
                     this.created = true;
                     this.createdMsg = response.data.message;
+                    setTimeout(() => this.created = false, 1500);
                 }).catch((err) => {
-                    console.log(err.response.data.error);
-                    this.errors = [err.response.data.error];
+                    this.errors = [err.response.data.error || err.response.data.message];
                 });
             },
             changePortfolioPicture(event) {

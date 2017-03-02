@@ -73,6 +73,8 @@
 					console.log(response.data.message);
 					this.success = true;
 					this.successMsg = response.data.message;
+					setTimeout(() => this.success = false, 1500);
+					this.clear();
 				}).catch((err) => {
 					console.log(err.response.data.error);
 					this.errors = [err.response.data.error];
@@ -84,6 +86,11 @@
 				if(event.target.files && event.target.files.length){
 					this.workImage = event.target.files[0];
 				}
+			},
+			clear(){
+				this.workName = '';
+				this.workLink = '';
+				this.workDescription = '';
 			}
 		}
 	}

@@ -1,6 +1,6 @@
 <template>
 	<div class="row">
-        <div class="col-sm-6 col-md-4">
+        <div class="col-md-4 col-md-offset-4">
             <div class="thumbnail">
                 <img :src="imageURL(image)" alt="Portfolio Image">
                 <div class="caption">

@@ -4768,6 +4768,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 				console.log(response.data.message);
 				_this.success = true;
 				_this.successMsg = response.data.message;
+				setTimeout(function () {
+					return _this.success = false;
+				}, 1500);
+				_this.clear();
 			}).catch(function (err) {
 				console.log(err.response.data.error);
 				_this.errors = [err.response.data.error];
@@ -4779,6 +4783,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 			if (event.target.files && event.target.files.length) {
 				this.workImage = event.target.files[0];
 			}
+		},
+		clear: function clear() {
+			this.workName = '';
+			this.workLink = '';
+			this.workDescription = '';
 		}
 	}
 };
@@ -4842,12 +4851,13 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 }
             };
             axios.post('http://localhost:8000/api/v1/portfolio/new', payload, headers).then(function (response) {
-                console.log(response);
                 _this.created = true;
                 _this.createdMsg = response.data.message;
+                setTimeout(function () {
+                    return _this.created = false;
+                }, 1500);
             }).catch(function (err) {
-                console.log(err.response.data.error);
-                _this.errors = [err.response.data.error];
+                _this.errors = [err.response.data.error || err.response.data.message];
             });
         },
         changePortfolioPicture: function changePortfolioPicture(event) {
@@ -4905,7 +4915,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 		queryPage: function queryPage(event, page) {
 			var _this = this;
 
-			this.page = page;
+			this.page = event ? event.target.innerHTML : page;
 			this.errors = [];
 			axios.get('http://localhost:8000/api/v1/portfolio/page/' + (event ? event.target.innerHTML : page)).then(function (response) {
 				_this.count = response.data.count;
@@ -5169,7 +5179,7 @@ var routes = [{
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(1)();
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 /***/ }),
 /* 45 */
@@ -5183,7 +5193,7 @@ exports.push([module.i, "\n.pagination {\n    margin: 30px !important;\n}\n", ""
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(1)();
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 /***/ }),
 /* 47 */
@@ -5508,7 +5518,9 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     domProps: {
       "textContent": _vm._s(_vm.errors[0])
     }
-  })]), _vm._v(" "), (_vm.count > 0) ? _c('div', _vm._l((_vm.portfolio), function(p) {
+  })]), _vm._v(" "), (_vm.count > 0) ? _c('div', {
+    staticClass: "text-center"
+  }, _vm._l((_vm.portfolio), function(p) {
     return _c('portfolio-card', {
       attrs: {
         "image": p.thumbnail,
@@ -5517,7 +5529,9 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
         "work2": _vm.getWork(p.work[1])
       }
     })
-  })) : _c('div', [_c('img', {
+  })) : _c('div', {
+    staticClass: "text-center"
+  }, [_c('img', {
     attrs: {
       "src": "misc/nothing_to_see_here.png"
     }
@@ -6203,7 +6217,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   return _c('div', {
     staticClass: "row"
   }, [_c('div', {
-    staticClass: "col-sm-6 col-md-4"
+    staticClass: "col-md-4 col-md-offset-4"
   }, [_c('div', {
     staticClass: "thumbnail"
   }, [_c('img', {
