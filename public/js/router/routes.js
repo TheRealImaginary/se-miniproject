@@ -9,6 +9,10 @@ import CreatePortfolio from '../views/CreatePortfolio'
 
 let routes = [
 	{
+		path:'/',
+		redirect: '/home'
+	},
+	{
 		path: '/signup',
 		component: SignUp
 	},

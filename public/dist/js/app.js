@@ -5145,6 +5145,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 var routes = [{
+	path: '/',
+	redirect: '/home'
+}, {
 	path: '/signup',
 	component: __WEBPACK_IMPORTED_MODULE_2__views_SignUp___default.a
 }, {
