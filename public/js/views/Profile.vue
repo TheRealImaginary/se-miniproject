@@ -1,5 +1,5 @@
 <template>
-	<div class="">
+	<div class="row">
 		<div class="col-md-6 col-md-offset-3">
 			<h1>Profile</h1>
 
@@ -12,7 +12,7 @@
 	            <h3 v-text="successMsg" class="text-center alert alert-success"></h3>
 	        </div>
 
-	        <div class="">
+	        <div class="row">
 	            <div class="thumbnail text-center">
 		            <img :src="imageURL(avatarName)" alt="Profile Picture">
 					<input @change="avatarChange" type="file" name="profilePic" accept="image/*">
