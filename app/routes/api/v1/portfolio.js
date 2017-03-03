@@ -35,9 +35,11 @@ router.use(bodyParser.json());
  * Client View Portfolio
  */
 router.get('/page/:page', function (req, res, next) {
+	console.log(2);
 	let page = req.params.page;
 	Portfolio.count(function (err, count) {
 		if (err) {
+			console.log(err);
 			return next(err);
 		}
 		Portfolio.find({}, {}, {
@@ -89,12 +91,13 @@ router.post('/new', authMiddleware, upload.single('portfolioImage'), function (r
  * Student Upload Work
  */
 router.put('/add', authMiddleware, upload.single('workImage'), function (req, res, next) {
+	console.log(req.body);
 	let workImage = req.file,
 		workName = req.body.workName,
 		workLink = req.body.workLink,
 		workDescription = req.body.workDescription;
 	if ((!workImage && !workLink) || !workName) {
-		return next();
+		return next('Must Have Either a Work Image Or Link. Moreover WorkName is Required!');
 	}
 	if (workImage)
 		workImage = workImage.filename;
@@ -136,6 +139,7 @@ router.put('/add', authMiddleware, upload.single('workImage'), function (req, re
  * Error Handling Middleware
  */
 router.use(function (err, req, res, next) {
+	console.log(err);
 	return res.status(500).json({
 		error: err.toString()
 	});

@@ -101,6 +101,7 @@ router.post('/logout', function (req, res, next) {
  * Error Handling Middleware
  */
 router.use(function (err, req, res, next) {
+	console.log(err.toString());
 	return res.status(500).json({
 		error: err.toString()
 	});
