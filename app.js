@@ -12,7 +12,7 @@ const portfolioApi = require('./app/routes/api/v1/portfolio');
 const app = express();
 
 const PORT = process.env.PORT || config.PORT;
-const DB_URL = config.DB_URL;
+const DB_URL = process.env.DB_URL || config.DB_URL;
 
 const connection = mongoose.connect(DB_URL);
 
@@ -25,9 +25,9 @@ app.use(function (req, res, next) {
 	next();
 });
 
-// app.get('/*', function(req, res){
-// 	return res.sendFile('index.html');
-// });
+app.get('/', function(req, res){
+	return res.sendFile('index.html');
+});
 
 app.options('/*', function (req, res) {
 	return res.sendStatus(200);
