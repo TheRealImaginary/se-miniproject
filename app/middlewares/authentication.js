@@ -4,9 +4,8 @@ const passportJWT = require('passport-jwt');
 const headerParser = require('../util/headerParser');
 const User = require('../models/User');
 const InvalidToken = require('../models/InvalidToken');
-const config = require('../../config.json');
 
-const SECRET_OR_KEY = config.SECRET_OR_KEY;
+const SECRET_OR_KEY = process.env.SECRET_OR_KEY;
 const ExtractJWT = passportJWT.ExtractJwt;
 const JWTStrategy = passportJWT.Strategy;
 

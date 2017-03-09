@@ -3,7 +3,6 @@ const mongoose = require('mongoose');
 const passport = require('passport');
 
 const auth = require('./app/middlewares/authentication');
-const config = require('./config.json');
 
 const authApi = require('./app/routes/api/v1/auth');
 const studentApi = require('./app/routes/api/v1/student');
@@ -11,8 +10,8 @@ const portfolioApi = require('./app/routes/api/v1/portfolio');
 
 const app = express();
 
-const PORT = process.env.PORT || config.PORT;
-const DB_URL = process.env.DB_URL || config.DB_URL;
+const PORT = process.env.PORT;
+const DB_URL = process.env.DB_URL;
 
 const connection = mongoose.connect(DB_URL);
 

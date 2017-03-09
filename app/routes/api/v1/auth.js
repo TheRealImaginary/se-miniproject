@@ -5,10 +5,9 @@ const jwt = require('jsonwebtoken');
 const headerParser = require('../../../util/headerParser');
 const User = require('../../../models/User');
 const InvalidToken = require('../../../models/InvalidToken');
-const config = require('../../../../config.json');
 
 const router = express.Router();
-const secretOrKey = config.SECRET_OR_KEY;
+const secretOrKey = process.env.SERCRET_OR_KEY;
 
 router.use(bodyParser.json());
 
