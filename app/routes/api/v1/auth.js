@@ -7,7 +7,7 @@ const User = require('../../../models/User');
 const InvalidToken = require('../../../models/InvalidToken');
 
 const router = express.Router();
-const secretOrKey = process.env.SERCRET_OR_KEY;
+const secretOrKey = process.env.SECRET_OR_KEY;
 
 router.use(bodyParser.json());
 
