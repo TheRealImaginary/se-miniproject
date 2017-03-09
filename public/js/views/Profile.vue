@@ -67,7 +67,8 @@
 					this.avatarName = response.data.avatar;
 				}).catch((err) => {
 					console.log(err);
-					this.errors = [err.response.data.error || err.response.data.message];
+					if (err.response.data)
+						this.errors = [err.response.data.error || err.response.data.message];
 				});
 			},
 			avatarChange(event) {

@@ -5185,7 +5185,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 				_this2.avatarName = response.data.avatar;
 			}).catch(function (err) {
 				console.log(err);
-				_this2.errors = [err.response.data.error || err.response.data.message];
+				if (err.response.data) _this2.errors = [err.response.data.error || err.response.data.message];
 			});
 		},
 		avatarChange: function avatarChange(event) {
@@ -5352,7 +5352,7 @@ var routes = [{
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(1)();
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 /***/ }),
 /* 48 */
