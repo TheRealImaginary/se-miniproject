@@ -47,7 +47,7 @@
                         Authorization: `JWT ${localStorage.getItem('token')}`
                     }
                 };
-                axios.post('http://localhost:8000/api/v1/portfolio/new', payload, headers).then((response) => {
+                axios.post('/api/v1/portfolio/new', payload, headers).then((response) => {
                     this.created = true;
                     this.createdMsg = response.data.message;
                     setTimeout(() => this.created = false, 1500);

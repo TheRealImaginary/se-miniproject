@@ -69,7 +69,7 @@
 					}
 				};
 
-				axios.put('http://localhost:8000/api/v1/portfolio/add', payload, headers).then((response) => {
+				axios.put('/api/v1/portfolio/add', payload, headers).then((response) => {
 					console.log(response.data.message);
 					this.success = true;
 					this.successMsg = response.data.message;

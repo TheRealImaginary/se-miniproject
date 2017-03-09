@@ -36,7 +36,7 @@
 			queryPage(event, page) {
 				this.page = event ? event.target.innerHTML : page;
 				this.errors = [];
-				axios.get(`http://localhost:8000/api/v1/portfolio/page/${event?event.target.innerHTML:page}`).then((response) => {
+				axios.get(`/api/v1/portfolio/page/${event?event.target.innerHTML:page}`).then((response) => {
 					this.count = response.data.count;
 					this.portfolio = response.data.portfolios;
 				}).catch((err) => {

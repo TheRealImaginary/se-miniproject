@@ -4840,7 +4840,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 				}
 			};
 
-			axios.put('http://localhost:8000/api/v1/portfolio/add', payload, headers).then(function (response) {
+			axios.put('/api/v1/portfolio/add', payload, headers).then(function (response) {
 				console.log(response.data.message);
 				_this.success = true;
 				_this.successMsg = response.data.message;
@@ -4926,7 +4926,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                     Authorization: 'JWT ' + localStorage.getItem('token')
                 }
             };
-            axios.post('http://localhost:8000/api/v1/portfolio/new', payload, headers).then(function (response) {
+            axios.post('/api/v1/portfolio/new', payload, headers).then(function (response) {
                 _this.created = true;
                 _this.createdMsg = response.data.message;
                 setTimeout(function () {
@@ -4993,7 +4993,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 			this.page = event ? event.target.innerHTML : page;
 			this.errors = [];
-			axios.get('http://localhost:8000/api/v1/portfolio/page/' + (event ? event.target.innerHTML : page)).then(function (response) {
+			axios.get('/api/v1/portfolio/page/' + (event ? event.target.innerHTML : page)).then(function (response) {
 				_this.count = response.data.count;
 				_this.portfolio = response.data.portfolios;
 			}).catch(function (err) {
@@ -5162,7 +5162,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 					Authorization: 'JWT ' + localStorage.getItem('token')
 				}
 			};
-			axios.post('http://localhost:8000/api/v1/student/profile/picture', payload, headers).then(function (response) {
+			axios.post('/api/v1/student/profile/picture', payload, headers).then(function (response) {
 				console.log(response.data);
 				_this.success = true;
 				_this.successMsg = response.data.message;

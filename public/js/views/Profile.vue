@@ -46,7 +46,7 @@
 						Authorization: `JWT ${localStorage.getItem('token')}`
 					}
 				};
-				axios.post('http://localhost:8000/api/v1/student/profile/picture', payload, headers).then((response) => {
+				axios.post('/api/v1/student/profile/picture', payload, headers).then((response) => {
 					console.log(response.data);
 					this.success = true;
 					this.successMsg = response.data.message;
