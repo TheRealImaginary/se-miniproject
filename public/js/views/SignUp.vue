@@ -53,7 +53,7 @@
                 this.signUpMessage = '';
                 this.signedUp = '';
                 this.errors = [];
-                axios.post('http://localhost:8000/api/v1/auth/signup', {
+                axios.post('/api/v1/auth/signup', {
                     email: this.email,
                     name: this.name,
                     password: this.password,
