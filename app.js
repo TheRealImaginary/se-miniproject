@@ -24,9 +24,9 @@ app.use(function (req, res, next) {
 	next();
 });
 
-app.get('/', function(req, res){
-	return res.sendFile('index.html');
-});
+// app.get('/', function(req, res){
+	// return res.sendFile('index.html');
+// });
 
 app.options('/*', function (req, res) {
 	return res.sendStatus(200);
