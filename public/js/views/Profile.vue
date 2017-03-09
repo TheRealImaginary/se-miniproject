@@ -78,7 +78,7 @@
 			},
 			imageURL(image){
 				// console.log(Image, image);
-				return `avatars/${image || 'profile-default-male.png'}`;
+				return `misc/${image || 'profile-default-male.png'}`;
 			}
 		},
 		mounted(){

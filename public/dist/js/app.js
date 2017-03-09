@@ -5196,7 +5196,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 		},
 		imageURL: function imageURL(image) {
 			// console.log(Image, image);
-			return 'avatars/' + (image || 'profile-default-male.png');
+			return 'misc/' + (image || 'profile-default-male.png');
 		}
 	},
 	mounted: function mounted() {
