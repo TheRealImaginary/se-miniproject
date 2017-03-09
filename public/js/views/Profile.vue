@@ -62,7 +62,7 @@
 						Authorization: `JWT ${localStorage.getItem('token')}`
 					}
 				};
-				axios.get('http://localhost:8000/api/v1/student/profile/picture', headers).then((response) => {
+				axios.get('/api/v1/student/profile/picture', headers).then((response) => {
 					console.log(response.data.message);
 					this.avatarName = response.data.avatar;
 				}).catch((err) => {

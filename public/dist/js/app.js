@@ -5180,7 +5180,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 					Authorization: 'JWT ' + localStorage.getItem('token')
 				}
 			};
-			axios.get('http://localhost:8000/api/v1/student/profile/picture', headers).then(function (response) {
+			axios.get('/api/v1/student/profile/picture', headers).then(function (response) {
 				console.log(response.data.message);
 				_this2.avatarName = response.data.avatar;
 			}).catch(function (err) {
