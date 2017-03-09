@@ -40,5 +40,5 @@ jspm_packages
 config.json
 
 #stuff
-public/avatars/
-public/portfolio/
+public/avatars/Local_Test
+public/portfolio/Local_Test
