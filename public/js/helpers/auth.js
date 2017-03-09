@@ -3,7 +3,7 @@ export default {
 		authenticated: false
 	},
 	login(data, callBack) {
-		axios.post('http://localhost:8000/api/v1/auth/login', {
+		axios.post('/api/v1/auth/login', {
 			email: data.email,
 			password: data.password
 		}).then((response) => {
