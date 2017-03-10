@@ -1,5 +1,7 @@
 # SE Mini Project - MET Portfolio
 ## Demo
+https://metportfolio.herokuapp.com/
+
 ---
 ##Setup
 1. Clone this repo.
